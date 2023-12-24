@@ -4,7 +4,7 @@ const cardModel = require('../models/card');
 const {
   NotFoundError,
   DataError,
-  AuthError,
+  ForbidenError,
 } = require('../errors');
 
 function getAllCards(req, res, next) {
@@ -41,22 +41,25 @@ function createCard(req, res, next) {
 function deleteCard(req, res, next) {
   const userId = req.user._id;
   const { cardId } = req.params;
-  if (cardId) {
-    return cardModel
-      .findByIdAndDelete(cardId)
-      .then((card) => {
-        if (card.owner.toString() === userId.toString()) {
-          res.send({ message: 'deleted' });
-        }
-        return next(new AuthError('Нет доступа'));
-      })
-      .catch((err) => {
-        if (err.name === 'CastError') {
-          return next(new DataError('Введены некорректные данные'));
-        }
-        return next(err);
-      });
-  }
+  return cardModel.findById(cardId)
+    .then((card) => {
+      if (!card) {
+        return next(new NotFoundError('Карточка не найдена'));
+      }
+      if (card.owner.toString() === userId.toString()) {
+        return cardModel
+          .deleteOne({ cardId })
+          // eslint-disable-next-line consistent-return
+          .then((card) => res.send({ message: `Deleted: ${card._id}` }));
+      }
+      return next(new ForbidenError('Нет доступа'));
+    })
+    .catch((err) => {
+      if (err.name === 'CastError') {
+        return next(new DataError('Введены некорректные данные'));
+      }
+      return next(err);
+    });
 }
 
 function handlerLikes(req, res, next, findOption) {

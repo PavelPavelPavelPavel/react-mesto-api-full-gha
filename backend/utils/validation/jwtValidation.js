@@ -1,6 +1,6 @@
 const { celebrate, Joi } = require('celebrate');
 
-const jwtValidation = /^(\w{36}\.)(\w{91}\.)(\w{43})$/;
+const jwtValidation = /^([\w\W]{36}\.)([\w\W]{91}\.)([\w\W]{43})$/;
 
 const validateJwt = celebrate({
   headers: Joi.object({

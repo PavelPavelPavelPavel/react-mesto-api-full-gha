@@ -50,27 +50,14 @@ function App() {
 	
 	useEffect(() => {
 		const token = localStorage.getItem('token');
-		console.log(` at UseEffect ${token}`)
 		if (token && !null) {
 				auth
 					.getInfo()
-					.then((res) => {
-						setUserEmail(res.email);
-						setLoggedIn(true);
-						navigate("/");
-					})
-					.catch((err) => {
-						setUserEmail("");
-						setLoggedIn(false);
-						navigate("/sign-in");
-						console.log(err)
-					});
+					.then(() => setLoggedIn(true))
+					.catch(err => console.log(err));
 		} else {
-			setUserEmail("");
 			setLoggedIn(false);
-			navigate("/sign-in");
 		}
-	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	
@@ -79,7 +66,9 @@ function App() {
 			 Promise.all([api.getInfo(), api.getInfoCards()])
 				.then(([user, card]) => {
 						setCurrentUser(user);
-						setCards(card);		
+						setCards(card);	
+						setUserEmail(user.email)	
+						navigate("/")
 				})
 				.catch(err => {
 					navigate("/sign-in");
@@ -236,8 +225,6 @@ function App() {
 		auth
 			.authorization({password, email})
 			.then((res) => {
-				// console.log(res);
-				// console.log(` at HandleSignIn ${res.token}`)
 				localStorage.setItem("token", res.token);
 				setLoggedIn(true);
 				setUserEmail(res.email);
@@ -252,13 +239,8 @@ function App() {
 	}
 
 	function handleExitProfile() {
-		async function removeToken() {
-			return localStorage.removeItem("token");
-		}
-		return removeToken()
-		.then(() => {
+		 localStorage.removeItem("token");
 		 setLoggedIn(false);
-		})
 	}
 
 	return (

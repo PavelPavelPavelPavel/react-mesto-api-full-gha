@@ -84,10 +84,8 @@ function login(req, res, next) {
     // eslint-disable-next-line consistent-return
     .then((user) => {
       if (user) {
-        console.log(user);
         // eslint-disable-next-line consistent-return
         return bcrypt.compare(password, user.password, (err, isMatch) => {
-          console.log(isMatch);
           if (err) {
             return next(err);
           }
