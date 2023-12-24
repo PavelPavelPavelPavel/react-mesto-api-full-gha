@@ -1,0 +1,15 @@
+.element__img {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 282px;
+    height: 282px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px 10px 0px 0px;
+    box-sizing: border-box;
+}
+
+.element__img:hover {
+    cursor: pointer;
+}

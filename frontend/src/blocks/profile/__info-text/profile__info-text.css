@@ -1,0 +1,18 @@
+.profile__info-text {
+    display: grid;
+    margin: auto 0 auto 3.75px;
+    padding: 0;
+    row-gap: 1px;
+    column-gap: 18px;
+    grid-template-areas: 'profile__name profile__button'
+                         'profile__work .';
+}
+
+
+@media screen and (max-width: 320px) {
+    .profile__info-text {
+        margin: 13px 0 0 0;
+        row-gap: 14px;
+        column-gap: 10px;
+    }
+}

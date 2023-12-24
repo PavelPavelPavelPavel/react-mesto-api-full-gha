@@ -1,0 +1,11 @@
+.popup__form_edit_avatar {
+    width: 430px;
+    min-height: 272px;
+}
+
+@media screen and (max-width: 560px) {
+    .popup__form_edit_avatar {
+        width: 282px;
+        height: 250px; 
+    }
+}

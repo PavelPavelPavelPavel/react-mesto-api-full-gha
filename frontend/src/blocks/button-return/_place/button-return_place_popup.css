@@ -1,0 +1,15 @@
+.button-return_place_popup {
+	margin: 15px auto 80px auto;
+	padding: 0;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 16.94px;
+	max-width: 358px;
+}
+
+@media screen and (max-width: 560px) {
+	.button-return_place_popup {
+		max-width: 260px;
+	}
+}

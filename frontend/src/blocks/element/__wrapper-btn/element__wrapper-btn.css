@@ -1,0 +1,10 @@
+.element__wrapper-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    margin: 22px 20px 22px auto;
+    padding: 0;
+    width: 22px;
+    height: 35px;  
+}

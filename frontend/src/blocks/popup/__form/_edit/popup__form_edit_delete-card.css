@@ -1,0 +1,11 @@
+.popup__form_edit_delete-cards {
+  min-height: 181px;
+}
+
+@media screen and (max-width: 560px) {
+  .popup__form_edit_delete-cards {
+    width: 282px;
+    min-height: auto;
+    padding: 0 0 30px 0;
+  }
+}

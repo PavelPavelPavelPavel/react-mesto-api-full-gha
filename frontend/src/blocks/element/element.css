@@ -1,0 +1,12 @@
+.element {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background: #FFF;
+    border-radius: 10px;
+    border: none;
+    box-sizing: border-box;
+}
+
+
+

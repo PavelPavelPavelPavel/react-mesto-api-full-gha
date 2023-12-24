@@ -1,0 +1,26 @@
+.profile__avatar-btn {
+  margin: 3.75px 26.25px 3.75px 0;
+  padding: 0;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  background-color: inherit;
+  border-radius: 50%;
+  border: none;
+}
+
+.profile__avatar-btn:hover::before {
+  content: url(../../../images/Avatar-Pen_edit.svg);
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  margin: 47px 47px;
+  padding: 0;
+  transition: all 0.2 linear;
+}
+
+@media screen and (max-width: 938px) {
+  .profile__avatar-btn {
+    margin: auto 19px auto 36px;
+  }
+}

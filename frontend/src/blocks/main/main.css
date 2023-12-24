@@ -1,0 +1,8 @@
+.main {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  background-color: #000;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  height: 100%;
+}

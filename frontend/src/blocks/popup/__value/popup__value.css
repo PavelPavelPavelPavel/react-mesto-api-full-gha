@@ -1,0 +1,27 @@
+.popup__value {
+    margin: 0 auto;
+    padding: 0 0 13px 0;
+    min-width: 358px;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.popup__value:focus {
+   outline: 1px solid rgba(0, 0, 255, 0.3);
+   border-radius: 2px; 
+}
+
+@media screen and (max-width: 560px) {
+    .popup__value {
+        min-width: 238px;
+    }
+}
+
+

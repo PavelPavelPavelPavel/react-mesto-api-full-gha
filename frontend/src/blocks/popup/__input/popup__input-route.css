@@ -1,0 +1,7 @@
+.popup__input-route {
+    margin: 0 auto 216px auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
