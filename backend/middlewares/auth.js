@@ -1,6 +1,7 @@
 /* eslint-disable no-shadow */
 const jwt = require('jsonwebtoken');
-const { KEY_FOR_TOKEN } = require('../utils/config');
+
+const { KEY_FOR_TOKEN } = process.env;
 const userModel = require('../models/user');
 const { AuthError } = require('../errors');
 

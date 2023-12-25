@@ -18,6 +18,7 @@ import api from "../utils/Api";
 import auth from "../utils/Auth";
 import success from "../images/success.svg";
 import reject from "../images/reject.svg";
+
 //import { useResize } from "../utils/ResizeWidth";
 
 function App() {

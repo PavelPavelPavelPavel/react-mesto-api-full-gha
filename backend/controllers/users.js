@@ -1,3 +1,4 @@
+const { KEY_FOR_TOKEN } = process.env;
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const {
@@ -6,9 +7,9 @@ const {
   AlreadyExistsError,
   AuthError,
 } = require('../errors');
-const { SALT, KEY_FOR_TOKEN } = require('../utils/config');
 const userModel = require('../models/user');
 
+const SALT = 10;
 const createToken = (id) => jwt.sign({ _id: id }, KEY_FOR_TOKEN, {
   expiresIn: 3600000 * 24 * 7,
 });
@@ -45,7 +46,6 @@ function getUserById(req, res, next) {
 
 function createUser(req, res, next) {
   const { email, password, ...userData } = req.body;
-
   if (!email || !password) {
     return next(new DataError('Поля имейл или пароль заполнены неверно'));
   }
