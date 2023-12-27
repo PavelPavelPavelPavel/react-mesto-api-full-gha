@@ -3,11 +3,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 
-const allowedCors = [
-  'https://praktikum.tk',
-  'http://praktikum.tk',
-  'localhost:3000',
-];
+// const allowedCors = [
+//   'https://praktikum.tk',
+//   'http://praktikum.tk',
+//   'localhost:3000',
+// ];
 const path = require('path');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const cors = require('cors');
@@ -34,7 +34,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 app.use(requestLogger);
-app.use('/api/', appRouter);
+app.use(appRouter);
 app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
