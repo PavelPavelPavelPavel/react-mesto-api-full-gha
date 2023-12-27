@@ -8,7 +8,7 @@ const allowedCors = [
   'http://praktikum.tk',
   'localhost:3000',
 ];
-// const path = require('path');
+const path = require('path');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const cors = require('cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -31,7 +31,7 @@ app.use((req, res, next) => {
   }
   next();
 });
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 app.use(requestLogger);
 app.use('/api/', appRouter);
