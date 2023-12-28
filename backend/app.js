@@ -29,7 +29,7 @@ app.use(express.json());
 
 app.use(cors(allowedCors));
 app.use(requestLogger);
-app.use('/', appRouter);
+app.use('/api/', appRouter);
 app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
