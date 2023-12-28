@@ -103,7 +103,7 @@ class Api {
   }
 }
 
-const api = new Api("http://pavelmesto.nomoredomainsmonster.ru/api");
+const api = new Api("http://pavelmesto.nomoredomainsmonster.ru");
 
 
 export default api;
