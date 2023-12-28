@@ -18,16 +18,16 @@ mongoose.connect(MONGO_URL).then(() => {
 const app = express();
 const { checkServer } = require('./utils/responseCheck');
 
-// const allowedCors = [
-//   'https://praktikum.tk',
-//   'http://praktikum.tk',
-//   'localhost:3000',
-// ];
+const allowedCors = [
+  'https://praktikum.tk',
+  'http://praktikum.tk',
+  'localhost:3000',
+];
 app.use(express.json());
 
 // app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(cors());
+app.use(cors(allowedCors));
 app.use(requestLogger);
 app.use('/', appRouter);
 app.use(errorLogger);
