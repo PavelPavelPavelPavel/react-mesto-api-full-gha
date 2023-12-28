@@ -13,11 +13,11 @@ const {
   login,
 } = require('../controllers/users');
 
-router.post('/api/signup', validateCreateUser, createUser);
-router.post('/api/signin', validateLogin, login);
+router.post('/signup', validateCreateUser, createUser);
+router.post('/signin', validateLogin, login);
 router.use(validateJwt, authUser);
-router.use('/api/users', usersRouter);
-router.use('/api/cards', cardsRouter);
+router.use('/users', usersRouter);
+router.use('/cards', cardsRouter);
 router.use('*', (req, res, next) => {
   next(new NotFoundError('Страница не найдена'));
 });
