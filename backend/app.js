@@ -17,13 +17,15 @@ mongoose.connect(MONGO_URL).then(() => {
 });
 const app = express();
 const { checkServer } = require('./utils/responseCheck');
+const corsFn = require('./middlewares/cors');
 
 app.use(express.json());
 
 // app.use(express.static(path.join(__dirname, 'public')));
+app.use(corsFn);
 app.use(cors());
 app.use(requestLogger);
-app.use('/', appRouter);
+app.use('/api/', appRouter);
 app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
