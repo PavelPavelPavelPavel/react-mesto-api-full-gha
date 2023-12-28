@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 
-const path = require('path');
+// const path = require('path');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const cors = require('cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -20,7 +20,7 @@ const { checkServer } = require('./utils/responseCheck');
 
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 app.use(requestLogger);
 app.use('/', appRouter);
