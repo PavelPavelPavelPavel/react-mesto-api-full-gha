@@ -45,6 +45,6 @@ class Auth {
 }
 
 
-const auth = new Auth('/api/');
+const auth = new Auth('http://pavelmesto.nomoredomainsmonster.ru');
 
 export default auth;
