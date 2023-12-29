@@ -1,3 +1,4 @@
+const { REACT_APP_API_URL } = process.env;
 class Api {
   constructor(mainUrl) {
     this._mainUrl = mainUrl;
@@ -103,7 +104,7 @@ class Api {
   }
 }
 
-const api = new Api("http://pavelmesto.nomoredomainsmonster.ru/api");
+const api = new Api(REACT_APP_API_URL);
 
 
 export default api;
