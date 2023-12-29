@@ -1,4 +1,3 @@
-const { REACT_APP_API_URL } = process.env;
 
 class Auth {
 	constructor(mainUrl) {
@@ -46,6 +45,6 @@ class Auth {
 }
 
 
-const auth = new Auth(REACT_APP_API_URL);
+const auth = new Auth('/api/');
 
 export default auth;
