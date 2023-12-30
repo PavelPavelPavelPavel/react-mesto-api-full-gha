@@ -21,7 +21,7 @@ class Api {
         "Content-Type": "application/json",
       },
     });
-  } s
+  }
 
 
   getInfoCards() {
@@ -29,8 +29,8 @@ class Api {
       headers: {
         authorization: localStorage.getItem('token'),
         "Content-Type": "application/json",
-      },
-    });
+      }
+    })
   }
 
   setNewCard(link, name) {
@@ -43,8 +43,8 @@ class Api {
       body: JSON.stringify({
         name: `${name}`,
         link: `${link}`,
-      }),
-    });
+      })
+    })
   }
 
   setUserData(name, about) {
@@ -57,8 +57,8 @@ class Api {
       body: JSON.stringify({
         name: `${name}`,
         about: `${about}`,
-      }),
-    });
+      })
+    })
   }
 
   setUserAvatar(avatar) {
@@ -70,8 +70,8 @@ class Api {
       },
       body: JSON.stringify({
         avatar: avatar,
-      }),
-    });
+      })
+    })
   }
 
   deleteResponse(id) {
@@ -80,8 +80,8 @@ class Api {
       headers: {
         authorization: localStorage.getItem('token'),
         //"Content-Type": "application/json",
-      },
-    });
+      }
+    })
   }
 
   deleteResponseLike(id) {
@@ -91,7 +91,7 @@ class Api {
         authorization: localStorage.getItem('token'),
         "Content-Type": "application/json",
       },
-    });
+    })
   }
 
   addLikeToCard(id) {
@@ -101,7 +101,7 @@ class Api {
         authorization: localStorage.getItem('token'),
         "Content-Type": "application/json",
       },
-    });
+    })
   }
 }
 const api = new Api(process.env.REACT_APP_API_URL);
