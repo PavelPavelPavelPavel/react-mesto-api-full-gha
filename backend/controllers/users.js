@@ -41,9 +41,6 @@ function getUserById(req, res, next) {
 
 function createUser(req, res, next) {
   const { email, password, ...userData } = req.body;
-  if (!email || !password) {
-    return next(new DataError('Поля имейл или пароль заполнены неверно'));
-  }
   return bcrypt.hash(password, SALT)
     .then((hash) => userModel
       .create({ email, password: hash, ...userData })
@@ -72,9 +69,6 @@ function createUser(req, res, next) {
 
 function login(req, res, next) {
   const { email, password } = req.body;
-  if (!email || !password) {
-    return next(new DataError('Поля имейл или пароль заполнены неверно'));
-  }
   return userModel.findOne({ email }).select('+password')
     // eslint-disable-next-line consistent-return
     .then((user) => {
@@ -97,9 +91,6 @@ function login(req, res, next) {
 
 function getUserInfo(req, res, next) {
   const userId = req.user._id;
-  if (!userId) {
-    return next(new NotFoundError('Пользователь не найден'));
-  }
   return userModel.findById(userId)
     .then((user) => {
       const {

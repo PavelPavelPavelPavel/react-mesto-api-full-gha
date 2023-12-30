@@ -42,7 +42,7 @@ function deleteCard(req, res, next) {
         return next(new NotFoundError('Карточка не найдена'));
       }
       if (card.owner.toString() === userId.toString()) {
-        return cardModel
+        return card
           .deleteOne({ cardId })
           // eslint-disable-next-line consistent-return
           .then((card) => res.send({ message: `Deleted: ${card._id}` }));

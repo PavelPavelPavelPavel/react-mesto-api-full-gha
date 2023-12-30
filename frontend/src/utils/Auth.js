@@ -5,7 +5,6 @@ class Auth {
 	}
 
 	_sendRequest(url, options) {
-		console.log(url)
 		return fetch(url, options).then((response) => {
 			if (response.ok) {
 				return response.json();
