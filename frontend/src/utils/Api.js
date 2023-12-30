@@ -104,6 +104,7 @@ class Api {
     })
   }
 }
+
 const api = new Api(process.env.REACT_APP_API_URL);
 
 
