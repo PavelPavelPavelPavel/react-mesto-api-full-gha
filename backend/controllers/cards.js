@@ -10,12 +10,7 @@ const {
 function getAllCards(req, res, next) {
   return cardModel
     .find({}).sort({ _id: -1 }).limit(12)
-    .then((cards) => {
-      if (cards) {
-        return res.send(cards);
-      }
-      return next(new NotFoundError('Карточки не найдены'));
-    })
+    .then((cards) => res.send(cards))
     .catch((err) => next(err));
 }
 

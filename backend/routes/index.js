@@ -13,11 +13,11 @@ const {
   login,
 } = require('../controllers/users');
 
-router.get('/crash-test', () => {
-  setTimeout(() => {
-    throw new Error('Сервер сейчас упадёт');
-  }, 0);
-});
+// router.get('/crash-test', () => {
+//   setTimeout(() => {
+//     throw new Error('Сервер сейчас упадёт');
+//   }, 0);
+// });
 router.post('/signup', validateCreateUser, createUser);
 router.post('/signin', validateLogin, login);
 router.use(validateJwt, authUser);

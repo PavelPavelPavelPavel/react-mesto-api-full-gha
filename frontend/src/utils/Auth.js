@@ -5,6 +5,7 @@ class Auth {
 	}
 
 	_sendRequest(url, options) {
+		console.log(url)
 		return fetch(url, options).then((response) => {
 			if (response.ok) {
 				return response.json();
@@ -14,7 +15,7 @@ class Auth {
 	}
 
 	authentication(email, password) {
-		return this._sendRequest(`${this._mainUrl}/signup`, {
+		return this._sendRequest(`${this._mainUrl}signup`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -24,7 +25,7 @@ class Auth {
 	}
 
 	authorization({ password, email }) {
-		return this._sendRequest(`${this._mainUrl}/signin`, {
+		return this._sendRequest(`${this._mainUrl}signin`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -34,7 +35,7 @@ class Auth {
 	}
 
 	getInfo() {
-		return this._sendRequest(`${this._mainUrl}/users/me`, {
+		return this._sendRequest(`${this._mainUrl}users/me`, {
 			headers: {
 				"Content-Type": "application/json",
 				authorization: localStorage.getItem("token"),
@@ -45,6 +46,6 @@ class Auth {
 }
 
 
-const auth = new Auth('http://pavelmesto.nomoredomainsmonster.ru/api/');
+const auth = new Auth(process.env.REACT_APP_API_URL);
 
 export default auth;

@@ -5,6 +5,7 @@ class Api {
   }
 
   _sendRequest(url, options) {
+    console.log(url)
     return fetch(url, options).then((response) => {
       if (response.ok) {
         return response.json();
@@ -103,8 +104,7 @@ class Api {
     });
   }
 }
-
-const api = new Api('http://pavelmesto.nomoredomainsmonster.ru/api/');
+const api = new Api(process.env.REACT_APP_API_URL);
 
 
 export default api;

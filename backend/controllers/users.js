@@ -17,12 +17,7 @@ const createToken = (id) => jwt.sign({ _id: id }, KEY_FOR_TOKEN, {
 function getAllUsers(req, res, next) {
   return userModel
     .find()
-    .then((users) => {
-      if (!users) {
-        return next(new NotFoundError('Пользователи не найдены'));
-      }
-      return res.send(users);
-    })
+    .then((users) => res.send(users))
     .catch(next);
 }
 
