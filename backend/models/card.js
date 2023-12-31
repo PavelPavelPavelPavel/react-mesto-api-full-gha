@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { avatarRegex } = require('../utils/config');
+const { urlValidation } = require('../utils/config');
 
 const cardSchema = new mongoose.Schema(
   {
@@ -13,7 +13,7 @@ const cardSchema = new mongoose.Schema(
       type: String,
       validate: {
         validator(v) {
-          return avatarRegex.test(v);
+          return urlValidation.test(v);
         },
         message: 'Некорректный URL',
       },

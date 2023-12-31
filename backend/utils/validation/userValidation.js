@@ -1,13 +1,11 @@
 const { celebrate, Joi } = require('celebrate');
-
-const avatarValidation = /(http(s?):\/\/)(w{3}\.)?([\w\d\W\D]*)(\w?)[#]?/;
-const idValidation = /^(\w){24}$/;
+const { urlValidation, idValidation } = require('../config');
 
 const validateCreateUser = celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
     about: Joi.string().min(2).max(30),
-    avatar: Joi.string().pattern(avatarValidation),
+    avatar: Joi.string().pattern(urlValidation),
     email: Joi.string().required().email(),
     password: Joi.string().required(),
   }).unknown(true),
@@ -22,7 +20,7 @@ const validateLogin = celebrate({
 
 const validateUserAvatar = celebrate({
   body: Joi.object().required().keys({
-    avatar: Joi.string().pattern(avatarValidation),
+    avatar: Joi.string().pattern(urlValidation),
   }).unknown(true),
 });
 
@@ -45,5 +43,4 @@ module.exports = {
   validateUserAvatar,
   validateUpdateUserInfo,
   validateIdUser,
-  idValidation,
 };

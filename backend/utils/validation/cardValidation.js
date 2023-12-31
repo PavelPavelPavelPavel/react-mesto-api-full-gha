@@ -1,10 +1,10 @@
 const { celebrate, Joi } = require('celebrate');
-
-const { idValidation } = require('./userValidation');
+const { urlValidation, idValidation } = require('../config');
 
 const validateCreateCard = celebrate({
-  body: Joi.object().keys({
-    name: Joi.string().required().min(2).max(30),
+  body: Joi.object().required().keys({
+    name: Joi.string().min(2).max(30),
+    link: Joi.string().pattern(urlValidation),
   }).unknown(true),
 });
 
