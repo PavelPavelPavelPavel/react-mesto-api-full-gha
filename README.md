@@ -13,4 +13,4 @@ IP-адрес 158.160.110.57
 
 Frontend https://pavelmesto.nomoredomainsmonster.ru
 
-Backend https://pavelmesto.nomoredomainsmonster/api/
+Backend https://pavelmesto.nomoredomainsmonster.ru/api/
